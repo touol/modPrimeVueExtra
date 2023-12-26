@@ -43,17 +43,29 @@ export default defineConfig(async ({mode})=>{
                 output: {
                     assetFileNames: ({name}) => {
                         const {ext} = parse(name)
+                        // switch(ext){
+                        //     case '.css':
+                        //         return `css/web/primeicons/[name][extname]`
+                        //     case '.jpg':
+                        //     case '.png':
+                        //     case '.webp':
+                        //     case '.avif':
+                        //     case '.svg':
+                        //         return `css/web/primeicons/img/[name]-[hash][extname]`
+                        //     default:
+                        //         return `css/web/primeicons/[ext]/[name]-[hash][extname]`
+                        // }
                         switch(ext){
                             case '.css':
-                                return `css/web/primeicons/[name][extname]`
+                                return `css/[name][extname]`
                             case '.jpg':
                             case '.png':
                             case '.webp':
                             case '.avif':
                             case '.svg':
-                                return `css/web/primeicons/img/[name]-[hash][extname]`
+                                return `img/[name]-[hash][extname]`
                             default:
-                                return `css/web/primeicons/[ext]/[name]-[hash][extname]`
+                                return `[ext]/[name]-[hash][extname]`
                         }
                     },
                     chunkFileNames: 'js/chunks/[name]-[hash].js',
